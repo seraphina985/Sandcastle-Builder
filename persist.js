@@ -936,7 +936,7 @@
 		Molpy.MustardCheck();
 		Molpy.RefreshOptions();
 
-		Molpy.ONGstart = ONGsnip(moment()); //if you missed the ONG before loading, too bad!
+		Molpy.ONGstart = ONGsnip(Date.now()); //if you missed the ONG before loading, too bad!
 		g('clockface').className = Molpy.Boosts['Coma Molpy Style'].power ? 'hidden' : 'unhidden';
 		Molpy.HandlePeriods();
 		Molpy.UpdateBeach();
@@ -1267,9 +1267,9 @@
 			Molpy.BoostsOwned = 0;
 			Molpy.notifsReceived = 0;
 
-			Molpy.startDate = parseInt(moment().valueOf());
+			Molpy.startDate = Date.now();
 			Molpy.newpixNumber = 1;
-			Molpy.ONGstart = ONGsnip(moment());
+			Molpy.ONGstart = ONGsnip(Molpy.startDate);
 			Molpy.DefaultOptions();
 
 			var keep = '';

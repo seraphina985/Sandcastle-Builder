@@ -1097,7 +1097,7 @@ Molpy.DefineGUI = function() {
 	
 	Molpy.Log = function() {
 		this.np = Math.floor(Molpy.newpixNumber);
-		this.time = moment();
+		this.time = new Date();
 		this.text = [];
 		this.qty = [];
 		this.joinedString = function() {
@@ -1255,8 +1255,8 @@ Molpy.DefineGUI = function() {
 		Molpy.notifLogPaint = 0;
 		var title = g('logTitle');
 		var today = Molpy.logArchive[Molpy.selectedLog].time;
-		var h = today.hours();
-		var m = today.minutes();
+		var h = today.getHours();
+		var m = today.getMinutes();
 		if(m < 10) m = "0" + m;
 		title.title = h + ":" + m;
 		title.innerHTML = "Notification log for Newpix " + Molpy.logArchive[Molpy.selectedLog].np;
@@ -1639,7 +1639,7 @@ Molpy.DefineGUI = function() {
 			return;
 		}
 		if(!Molpy.ONGelapsed) {
-			Molpy.ONGelapsed = moment().valueOf() - Molpy.ONGstart.valueOf();
+			Molpy.ONGelapsed = Date.now() - Molpy.ONGstart;
 		}
 		var npPercent = Molpy.ONGelapsed / (Molpy.NPlength * 1000);
 		Molpy.clockDegrees = (npPercent * 360) + 180; //rotation from top		
